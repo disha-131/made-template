@@ -38,7 +38,7 @@ Excel sheet provided the data of session Id, clicks, basket and order data of th
 
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
 
-1. Explore Data Sources [#1][i1]
+1. Explore Data Sources #1
 2. Clean the data [#2][i2]
 3. Exploratory Data Analysis [#3][i3]
 4. Feature Selection [#4][i4]
@@ -49,5 +49,5 @@ Excel sheet provided the data of session Id, clicks, basket and order data of th
 [#2][i2] https://github.com/disha-131/made-template/issues/2#issue-1982328073
 [#3][i3] https://github.com/disha-131/made-template/issues/3#issue-1982336379
 [#4][i4] https://github.com/disha-131/made-template/issues/4#issue-1982340080
-[#5][i5] https://github.com/disha-131/made-template/issues/5#issue-1982350184
-[#6][i6] https://github.com/disha-131/made-template/issues/6#issue-1982358423
+[i5] https://github.com/disha-131/made-template/issues/5#issue-1982350184
+[i6] https://github.com/disha-131/made-template/issues/6#issue-1982358423
