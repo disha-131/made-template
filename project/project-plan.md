@@ -45,9 +45,9 @@ Excel sheet provided the data of session Id, clicks, basket and order data of th
 5. Model Evaluation [#5][i5]
 6. Make Repository submission file Ready [#6][i6]
 
-[i1] https://github.com/disha-131/made-template/issues/1#issue-1982324792
-[i2] https://github.com/disha-131/made-template/issues/2#issue-1982328073
-[i3] https://github.com/disha-131/made-template/issues/3#issue-1982336379
-[i4] https://github.com/disha-131/made-template/issues/4#issue-1982340080
-[i5] https://github.com/disha-131/made-template/issues/5#issue-1982350184
-[i6] https://github.com/disha-131/made-template/issues/6#issue-1982358423
+[#1][i1] https://github.com/disha-131/made-template/issues/1#issue-1982324792
+[#2][i2] https://github.com/disha-131/made-template/issues/2#issue-1982328073
+[#3][i3] https://github.com/disha-131/made-template/issues/3#issue-1982336379
+[#4][i4] https://github.com/disha-131/made-template/issues/4#issue-1982340080
+[#5][i5] https://github.com/disha-131/made-template/issues/5#issue-1982350184
+[#6][i6] https://github.com/disha-131/made-template/issues/6#issue-1982358423
