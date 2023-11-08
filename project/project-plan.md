@@ -38,14 +38,13 @@ Excel sheet provided the data of session Id, clicks, basket and order data of th
 
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
 
-1. Explore Data Sources [#1][]
+1. [#1](https://github.com/disha-131/made-template/issues/1#issue-1982324792)
 2. Clean the data [#2][i2]
 3. Exploratory Data Analysis [#3][i3]
 4. Feature Selection [#4][i4]
 5. Model Evaluation [#5][i5]
 6. Make Repository submission file Ready [#6][i6]
 
-[i1] https://github.com/disha-131/made-template/issues/1#issue-1982324792
 [i2] https://github.com/disha-131/made-template/issues/2#issue-1982328073
 [i3] https://github.com/disha-131/made-template/issues/3#issue-1982336379
 [i4] https://github.com/disha-131/made-template/issues/4#issue-1982340080
