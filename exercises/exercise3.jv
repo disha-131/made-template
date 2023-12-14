@@ -1,44 +1,50 @@
-// Define a constraint for exactly five characters
-constraint ExactlyFiveChar oftype LengthConstraint {
-    minLength: 5;
-    maxLength: 5;
-}
-
-// Define a valuetype for Community Identification Number without a default value
-valuetype CommunityIdentificationNumber oftype text {
-    constraints: [ExactlyFiveChar];
-}
-
-// Define a constraint for positive numbers
-constraint PositiveNumber oftype RangeConstraint {
-    lowerBound: 0;
-    lowerBoundInclusive: false;
-}
-
-// Define a valuetype for Positive Integer
-valuetype PositiveInteger oftype integer {
-    constraints: [PositiveNumber];
-}
-
-// Define the pipeline for processing car data
+// Define a pipeline named CarsPipeline
 pipeline CarsPipeline {
+
+    // Define a constraint for values with exactly five characters
+    constraint ExactlyFiveChar oftype LengthConstraint {
+        minLength: 5;
+        maxLength: 5;
+    }
+
+    // Define a valuetype for Community Identification Numbers (CIN)
+    valuetype CommunityIdentificationNumber oftype text {
+        constraints: [ExactlyFiveChar];
+    }
+
+    // Define a constraint for positive numbers
+    constraint PositiveNumber oftype RangeConstraint {
+        lowerBound: 0;
+        lowerBoundInclusive: false;
+    }
+
+    // Define a valuetype for positive integers
+    valuetype PositiveInteger oftype integer {
+        constraints: [PositiveNumber];
+    }
+
+    // Define an HTTP extractor block to fetch data from the provided URL
     block CarsFileExtractor oftype HttpExtractor {
         url: "https://www-genesis.destatis.de/genesis/downloads/00/tables/46251-0021_00.csv";
     }
 
+    // Define a text file interpreter block with suitable encoding to preserve German special letters
     block CarsTextFileInterpreter oftype TextFileInterpreter {
-        encoding: "ascii";
-    }
+    encoding: "utf8";  // Use suitable encoding to preserve special characters
+}
 
+    // Define a text range selector block to ignore the first 6 lines and last 4 lines as metadata
     block CarsTextRangeSelector oftype TextRangeSelector {
         lineFrom: 7;
-        lineTo: 483;
+        lineTo: 483;  // Negative index denotes counting from the end of the file
     }
 
+    // Define a CSV interpreter block with semicolon as the delimiter
     block CarsCSVInterpreter oftype CSVInterpreter {
         delimiter: ";";
     }
 
+    // Define cell writer blocks to write headers for different columns
     block HeaderWriterColA_C oftype CellWriter {
         at: range A1:C1;
         write: ["date", "CIN", "name"];
@@ -79,6 +85,7 @@ pipeline CarsPipeline {
         write: ["others"];
     }
 
+    // Define a table interpreter block to interpret headers and columns for the data
     block CarsTableInterpreter oftype TableInterpreter {
         header: true;
         columns: [
@@ -95,11 +102,13 @@ pipeline CarsPipeline {
         ];
     }
 
+    // Define a SQLite loader block to load data into the "cars" table in the "cars.sqlite" file
     block CarsLoader oftype SQLiteLoader {
         table: "cars";
         file: "./cars.sqlite";
     }
 
+    // Define the data pipeline flow
     CarsFileExtractor
         ->CarsTextFileInterpreter
         ->CarsTextRangeSelector
