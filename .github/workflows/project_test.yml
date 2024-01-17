@@ -1,0 +1,35 @@
+name: Execute Kaggle Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  project_work3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Latest Code
+        uses: actions/checkout@v2
+
+      - name: Set up Python Environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Kaggle
+        run: |
+          mkdir $HOME/.kaggle
+          echo '{"username":"${{ secrets.MY_KAGGLE_USERNAME }}","key":"${{ secrets.MY_KAGGLE_KEY }}"}' > $HOME/.kaggle/kaggle.json
+          chmod 600 $HOME/.kaggle/kaggle.json
+
+      - name: Run Script
+        run: |
+          bash project/pipeline.sh
+           exit_code=$?
+           if [ $exit_code -eq 0 ]; then
+             echo "project executed successfully."
+           else
+             echo "project failed with exit code $exit_code."
+             exit $exit_code
+           fi
