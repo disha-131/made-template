@@ -11,5 +11,8 @@ current_directory = os.path.dirname(os.path.abspath(__file__))
 file_name = "../data/items_db.db"
 file_path = os.path.join(current_directory, file_name)
 
+file_name = "../data/transactions_data.db"
+file_path = os.path.join(current_directory, file_name)
+
 if __name__ == "__main__":
     check_output_file(file_path)
